@@ -1,13 +1,7 @@
 ﻿//Timurshin Bulat, 220 group, Geometric figures 3, 30.05.22
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PaintSaveLoad
@@ -46,8 +40,9 @@ namespace PaintSaveLoad
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    string figureStr = form.TheValue;
-                    var figure = canvas.Unserizalize(figureStr);
+                    //string figureStr = form.TheValue;
+                    //var figure = canvas.Unserizalize(figureStr);
+                    Figure figure = form.TempFigure;
                     canvas.Add(figure);
                 }
             }
@@ -60,8 +55,9 @@ namespace PaintSaveLoad
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    string figureStr = form.TheValue;
-                    var figure = canvas.Unserizalize(figureStr);
+                    //string figureStr = form.TheValue;
+                    //var figure = canvas.Unserizalize(figureStr);
+                    Figure figure = form.TempFigure;
                     canvas.Add(figure);
                 }
             }
@@ -74,8 +70,9 @@ namespace PaintSaveLoad
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    string figureStr = form.TheValue;
-                    var figure = canvas.Unserizalize(figureStr);
+                    //string figureStr = form.TheValue;
+                    //var figure = canvas.Unserizalize(figureStr);
+                    Figure figure = form.TempFigure;
                     canvas.Add(figure);
                 }
             }
@@ -88,8 +85,9 @@ namespace PaintSaveLoad
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    string figureStr = form.TheValue;
-                    var figure = canvas.Unserizalize(figureStr);
+                    //string figureStr = form.TheValue;
+                    //var figure = canvas.Unserizalize(figureStr);
+                    Figure figure = form.TempFigure;
                     canvas.Add(figure);
                 }
             }
@@ -102,7 +100,7 @@ namespace PaintSaveLoad
                 return;
             string filename = saveDialog.FileName;
             canvas.Save(filename);
-            MessageBox.Show("Файл сохранен");
+            MessageBox.Show("File saved.");
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -110,11 +108,18 @@ namespace PaintSaveLoad
             if (loadDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             string filename = loadDialog.FileName;
-            canvas.Load(filename);
+            try
+            {
+                canvas.Load(filename);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("Bad savefile.");
+            }
             btnDraw_Click(sender, e);
         }
 
-        private void frmMain_ResizeEnd(Object sender, EventArgs e)
+        private void frmMain_Paint(Object sender, EventArgs e)
         {
             btnDraw_Click(sender, e);
         }

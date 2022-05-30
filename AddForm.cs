@@ -21,11 +21,7 @@ namespace PaintSaveLoad
         /// </param>
 
         public readonly int FigureType;
-        private Figure TempFigure;
-        public string TheValue
-        {
-            get { return TempFigure.Serialize(); }
-        }
+        public Figure TempFigure;
 
         public AddForm(int figureType)
         {

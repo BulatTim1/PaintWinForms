@@ -132,7 +132,7 @@ namespace PaintSaveLoad
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(38, 108);
+            this.btnClear.Location = new System.Drawing.Point(38, 79);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 1;
@@ -142,7 +142,7 @@ namespace PaintSaveLoad
             // 
             // btnDraw
             // 
-            this.btnDraw.Location = new System.Drawing.Point(38, 79);
+            this.btnDraw.Location = new System.Drawing.Point(38, 108);
             this.btnDraw.Name = "btnDraw";
             this.btnDraw.Size = new System.Drawing.Size(75, 23);
             this.btnDraw.TabIndex = 0;
@@ -170,7 +170,7 @@ namespace PaintSaveLoad
             this.Controls.Add(this.panelControls);
             this.Name = "frmMain";
             this.Text = "Paint";
-            this.ResizeEnd += new System.EventHandler(this.frmMain_ResizeEnd);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMain_Paint);
             this.panelControls.ResumeLayout(false);
             this.ResumeLayout(false);
 
