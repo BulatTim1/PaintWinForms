@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Text;
 
 namespace PaintSaveLoad
@@ -28,12 +29,16 @@ namespace PaintSaveLoad
 
         public override void Draw(Graphics paper)
         {
-            int[] rgb = GetRGB();
-            var color = Color.FromArgb(rgb[0], rgb[1], rgb[2]);
-            var pen = new Pen(color, Stroke.Width);
-            paper.DrawEllipse(pen, basePoint.X - (Radius / 2), 
-                basePoint.Y - (Radius / 2), basePoint.X + (Radius / 2),
-                basePoint.Y + (Radius / 2));
+            int[] rgbS = GetRGBStroke();
+            int[] rgbF = GetRGBFilled();
+            var colorStroke = Color.FromArgb(rgbS[0], rgbS[1], rgbS[2]);
+            var colorFilled = Color.FromArgb(rgbF[0], rgbF[1], rgbF[2]);
+            var pen = new Pen(colorStroke, Stroke.Width);
+            paper.DrawEllipse(pen, basePoint.X - Radius,
+                basePoint.Y - Radius, Radius * 2, Radius * 2);
+            SolidBrush brush = new SolidBrush(colorFilled);
+            paper.FillEllipse(brush, basePoint.X - Radius,
+                basePoint.Y - Radius, Radius * 2,Radius * 2);
         }
 
         public override string Serialize()

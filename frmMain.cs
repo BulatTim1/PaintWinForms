@@ -18,13 +18,8 @@ namespace PaintSaveLoad
         }
 
         private void btnDraw_Click(object sender, EventArgs e)
-        {   
-            paper = pnlArtBoard.CreateGraphics();
-
-            foreach(var figure in canvas.GetFigures())
-            {
-                figure.Draw(paper);
-            }
+        {
+            Draw();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -40,13 +35,11 @@ namespace PaintSaveLoad
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    //string figureStr = form.TheValue;
-                    //var figure = canvas.Unserizalize(figureStr);
                     Figure figure = form.TempFigure;
                     canvas.Add(figure);
                 }
             }
-            btnDraw_Click(sender, e);
+            Draw();
         }
 
         private void btnAddCircle_Click(object sender, EventArgs e)
@@ -55,13 +48,11 @@ namespace PaintSaveLoad
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    //string figureStr = form.TheValue;
-                    //var figure = canvas.Unserizalize(figureStr);
                     Figure figure = form.TempFigure;
                     canvas.Add(figure);
                 }
             }
-            btnDraw_Click(sender, e);
+            Draw();
         }
 
         private void btnAddRectangle_Click(object sender, EventArgs e)
@@ -70,13 +61,11 @@ namespace PaintSaveLoad
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    //string figureStr = form.TheValue;
-                    //var figure = canvas.Unserizalize(figureStr);
                     Figure figure = form.TempFigure;
                     canvas.Add(figure);
                 }
             }
-            btnDraw_Click(sender, e);
+            Draw();
         }
 
         private void btnAddTriangle_Click(object sender, EventArgs e)
@@ -85,13 +74,11 @@ namespace PaintSaveLoad
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    //string figureStr = form.TheValue;
-                    //var figure = canvas.Unserizalize(figureStr);
                     Figure figure = form.TempFigure;
                     canvas.Add(figure);
                 }
             }
-            btnDraw_Click(sender, e);
+            Draw();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -116,12 +103,22 @@ namespace PaintSaveLoad
             {
                 MessageBox.Show("Bad savefile.");
             }
-            btnDraw_Click(sender, e);
+            Draw();
         }
 
         private void frmMain_Paint(Object sender, EventArgs e)
         {
-            btnDraw_Click(sender, e);
+            Draw();
         }
-    }
+
+        private void Draw()
+        {
+            paper = pnlArtBoard.CreateGraphics();
+
+            foreach (var figure in canvas.GetFigures())
+            {
+                figure.Draw(paper);
+            }
+        }
+}
 }

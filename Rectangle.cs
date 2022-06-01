@@ -34,10 +34,15 @@ namespace PaintSaveLoad
 
         public override void Draw(Graphics paper)
         {
-            int[] rgb = GetRGB();
-            var color = Color.FromArgb(rgb[0], rgb[1], rgb[2]);
-            var pen = new Pen(color, Stroke.Width);
+            int[] rgbS = GetRGBStroke();
+            int[] rgbF = GetRGBFilled();
+            var colorStroke = Color.FromArgb(rgbS[0], rgbS[1], rgbS[2]);
+            var colorFilled = Color.FromArgb(rgbF[0], rgbF[1], rgbF[2]);
+            var pen = new Pen(colorStroke, Stroke.Width);
             paper.DrawRectangle(pen, new System.Drawing.Rectangle(A.X, A.Y,
+                Math.Abs(B.X - A.X), Math.Abs(B.Y - A.Y)));
+            SolidBrush brush = new SolidBrush(colorFilled);
+            paper.FillRectangle(brush, new System.Drawing.Rectangle(A.X, A.Y,
                 Math.Abs(B.X - A.X), Math.Abs(B.Y - A.Y)));
         }
         public override string Serialize()

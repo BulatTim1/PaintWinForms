@@ -39,9 +39,9 @@ namespace PaintSaveLoad
 
         public override void Draw(Graphics paper)
         {
-            int[] rgb = GetRGB();
-            var color = Color.FromArgb(rgb[0], rgb[1], rgb[2]);
-            var pen = new Pen(color, Stroke.Width);
+            int[] rgbS = GetRGBStroke();
+            var colorStroke = Color.FromArgb(rgbS[0], rgbS[1], rgbS[2]);
+            var pen = new Pen(colorStroke, Stroke.Width);
             paper.DrawLine(pen, A.X, A.Y, B.X, B.Y);
         }
 
@@ -51,12 +51,12 @@ namespace PaintSaveLoad
                 $"{Stroke.Color},{Stroke.Width};";
         }
 
-        public int[] GetRGB()
+        public int[] GetRGBStroke()
         {
             int Blue = Stroke.Color % 256;
             int Green = Stroke.Color / 256 % 256;
             int Red = Stroke.Color / 256 / 256 % 256;
-            return new int[] { Red, Green, Blue};
+            return new int[] { Red, Green, Blue };
         }
     }
 }

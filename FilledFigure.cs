@@ -30,11 +30,19 @@ namespace PaintSaveLoad
             Stroke.Width = StrokeWidth;
         }
 
-        public int[] GetRGB()
+        public int[] GetRGBStroke()
         {
             int Blue = Stroke.Color % 256;
             int Green = Stroke.Color / 256 % 256;
             int Red = Stroke.Color / 256 / 256 % 256;
+            return new int[] { Red, Green, Blue };
+        }
+
+        public int[] GetRGBFilled()
+        {
+            int Blue = Fill.Color % 256;
+            int Green = Fill.Color / 256 % 256;
+            int Red = Fill.Color / 256 / 256 % 256;
             return new int[] { Red, Green, Blue };
         }
     }
