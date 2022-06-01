@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace PaintSaveLoad
 {
-    struct Point
+    public struct Point
     {
         public int X;
         public int Y;
@@ -20,7 +20,7 @@ namespace PaintSaveLoad
         }
     }
 
-    struct StrokeData
+    public struct StrokeData
     {
         public int Width;
         public int Color;
@@ -31,7 +31,7 @@ namespace PaintSaveLoad
         public int Color;
     }
 
-    class Figure
+    public class Figure
     {
         protected Point basePoint;
 

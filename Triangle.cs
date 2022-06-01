@@ -40,12 +40,21 @@ namespace PaintSaveLoad
 
         public override void Draw(Graphics paper)
         {
-            int[] rgb = GetRGB();
-            var color = Color.FromArgb(rgb[0], rgb[1], rgb[2]);
-            var pen = new Pen(color, Stroke.Width);
-            paper.DrawLines(pen, new PointF[] { 
-                new PointF(A.X, A.Y), 
-                new PointF(B.X, B.Y), 
+            int[] rgbS = GetRGBStroke();
+            int[] rgbF = GetRGBFilled();
+            var colorStroke = Color.FromArgb(rgbS[0], rgbS[1], rgbS[2]);
+            var colorFilled = Color.FromArgb(rgbF[0], rgbF[1], rgbF[2]);
+            var pen = new Pen(colorStroke, Stroke.Width);
+            paper.DrawLines(pen, new PointF[] {
+                new PointF(A.X, A.Y),
+                new PointF(B.X, B.Y),
+                new PointF(C.X, C.Y),
+                new PointF(A.X, A.Y),
+                new PointF(B.X, B.Y)});
+            SolidBrush brush = new SolidBrush(colorFilled);
+            paper.FillPolygon(brush, new PointF[] {
+                new PointF(A.X, A.Y),
+                new PointF(B.X, B.Y),
                 new PointF(C.X, C.Y)});
         }
 

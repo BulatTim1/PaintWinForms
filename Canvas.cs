@@ -29,9 +29,7 @@ namespace PaintSaveLoad
 
         public void Load(string path = "canvas.save")
         {
-            string serializedCanvas = "";
-
-            serializedCanvas = System.IO.File.ReadAllText(path);
+            string serializedCanvas = System.IO.File.ReadAllText(path);
 
             if (serializedCanvas == "" || serializedCanvas == null)
             {
