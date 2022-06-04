@@ -9,7 +9,7 @@ namespace PaintSaveLoad
     public partial class frmMain : Form
     {
         Graphics paper;
-        Canvas canvas = new Canvas();
+        readonly Canvas canvas = new Canvas();
 
         public frmMain()
         {
@@ -22,6 +22,19 @@ namespace PaintSaveLoad
             Draw();
         }
 
+        private void btnClick(int type)
+        {
+            using (var form = new AddForm(type))
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    Figure figure = form.TempFigure;
+                    canvas.Add(figure);
+                }
+            }
+            Draw();
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             canvas.Clear();
@@ -31,54 +44,22 @@ namespace PaintSaveLoad
 
         private void btnAddLine_Click(object sender, EventArgs e)
         {
-            using (var form = new AddForm(1))
-            {
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    Figure figure = form.TempFigure;
-                    canvas.Add(figure);
-                }
-            }
-            Draw();
+            btnClick(1);
         }
 
         private void btnAddCircle_Click(object sender, EventArgs e)
         {
-            using (var form = new AddForm(3))
-            {
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    Figure figure = form.TempFigure;
-                    canvas.Add(figure);
-                }
-            }
-            Draw();
+            btnClick(3);
         }
 
         private void btnAddRectangle_Click(object sender, EventArgs e)
         {
-            using (var form = new AddForm(4))
-            {
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    Figure figure = form.TempFigure;
-                    canvas.Add(figure);
-                }
-            }
-            Draw();
+            btnClick(4);
         }
 
         private void btnAddTriangle_Click(object sender, EventArgs e)
         {
-            using (var form = new AddForm(5))
-            {
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    Figure figure = form.TempFigure;
-                    canvas.Add(figure);
-                }
-            }
-            Draw();
+            btnClick(5);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -106,11 +87,6 @@ namespace PaintSaveLoad
             Draw();
         }
 
-        private void frmMain_Paint(Object sender, EventArgs e)
-        {
-            Draw();
-        }
-
         private void Draw()
         {
             paper = pnlArtBoard.CreateGraphics();
@@ -120,5 +96,5 @@ namespace PaintSaveLoad
                 figure.Draw(paper);
             }
         }
-}
+    }
 }

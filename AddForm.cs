@@ -28,6 +28,8 @@ namespace PaintSaveLoad
             FigureType = figureType;
             InitializeComponent();
             SetVisibleOptions();
+            btnFillColorDialog.Text = colorDialogFillColor.Color.Name;
+            btnStrokeColorDialog.Text = colorDialogStrokeColor.Color.Name;
         }
 
         private void SetVisibleOptions()
@@ -67,51 +69,48 @@ namespace PaintSaveLoad
 
         private void btnFillColorDialog_Click(object sender, EventArgs e)
         {
-            colorDialogFillColor.ShowDialog();
+            if (colorDialogFillColor.ShowDialog() == DialogResult.OK)
+            {
+                btnFillColorDialog.Text = colorDialogFillColor.Color.Name;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!isValid())
+            if (!IsValid())
             {
                 MessageBox.Show("Fill all boxes!", "Not Valid", 
                     MessageBoxButtons.OK);
             }
 
-            switch (FigureType)
+            TempFigure = FigureType switch
             {
-                case 5:
-                    TempFigure = new Triangle(
-                    (int)numAX.Value, (int)numAY.Value,
-                    (int)numBXorRadius.Value, (int)numBY.Value,
-                    (int)numCX.Value, (int)numCY.Value,
-                    TakeColor(colorDialogFillColor),
-                    TakeColor(colorDialogStrokeColor),
-                    (int)numStrokeWidth.Value); break;
-                case 4:
-                    TempFigure = new Rectangle(
-                    (int)numAX.Value, (int)numAY.Value,
-                    (int)numBXorRadius.Value, (int)numBY.Value,
-                    TakeColor(colorDialogFillColor),
-                    TakeColor(colorDialogStrokeColor),
-                    (int)numStrokeWidth.Value); break;
-                case 3:
-                    TempFigure = new Circle(
-                    (int)numAX.Value, (int)numAY.Value,
-                    (int)numBXorRadius.Value,
-                    TakeColor(colorDialogFillColor),
-                    TakeColor(colorDialogStrokeColor),
-                    (int)numStrokeWidth.Value); break;
-                case 1:
-                    TempFigure = new Line(
-                    (int)numAX.Value, (int)numAY.Value,
-                    (int)numBXorRadius.Value, (int)numBY.Value,
-                    TakeColor(colorDialogStrokeColor),
-                    (int)numStrokeWidth.Value); break;
-                default: 
-                    TempFigure = new Figure(); break;
-            }
-
+                5 => new Triangle(
+                                    (int)numAX.Value, (int)numAY.Value,
+                                    (int)numBXorRadius.Value, (int)numBY.Value,
+                                    (int)numCX.Value, (int)numCY.Value,
+                                    TakeColor(colorDialogFillColor),
+                                    TakeColor(colorDialogStrokeColor),
+                                    (int)numStrokeWidth.Value),
+                4 => new Rectangle(
+                                    (int)numAX.Value, (int)numAY.Value,
+                                    (int)numBXorRadius.Value, (int)numBY.Value,
+                                    TakeColor(colorDialogFillColor),
+                                    TakeColor(colorDialogStrokeColor),
+                                    (int)numStrokeWidth.Value),
+                3 => new Circle(
+                                    (int)numAX.Value, (int)numAY.Value,
+                                    (int)numBXorRadius.Value,
+                                    TakeColor(colorDialogFillColor),
+                                    TakeColor(colorDialogStrokeColor),
+                                    (int)numStrokeWidth.Value),
+                1 => new Line(
+                                    (int)numAX.Value, (int)numAY.Value,
+                                    (int)numBXorRadius.Value, (int)numBY.Value,
+                                    TakeColor(colorDialogStrokeColor),
+                                    (int)numStrokeWidth.Value),
+                _ => new Figure(),
+            };
             DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -126,7 +125,7 @@ namespace PaintSaveLoad
             return rgb;
         }
 
-        private bool isValid()
+        private bool IsValid()
         {
             if (FigureType >= 2)
             {
@@ -156,7 +155,10 @@ namespace PaintSaveLoad
 
         private void btnStrokeColorDialog_Click(object sender, EventArgs e)
         {
-            colorDialogStrokeColor.ShowDialog();
+            if(colorDialogStrokeColor.ShowDialog() == DialogResult.OK)
+            {
+                btnStrokeColorDialog.Text = colorDialogStrokeColor.Color.Name;
+            }
         }
     }
 }

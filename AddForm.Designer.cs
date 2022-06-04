@@ -139,6 +139,11 @@ namespace PaintSaveLoad
             this.labelFillColor.Text = "Fill Color";
             this.labelFillColor.Visible = false;
             // 
+            // colorDialogFillColor
+            // 
+            this.colorDialogFillColor.AnyColor = true;
+            this.colorDialogFillColor.Color = System.Drawing.Color.Transparent;
+            // 
             // tablePanel
             // 
             this.tablePanel.ColumnCount = 2;
@@ -300,16 +305,11 @@ namespace PaintSaveLoad
             0,
             0,
             0});
-            this.numStrokeWidth.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numStrokeWidth.Name = "numStrokeWidth";
             this.numStrokeWidth.Size = new System.Drawing.Size(120, 23);
             this.numStrokeWidth.TabIndex = 25;
             this.numStrokeWidth.Value = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
             0});
