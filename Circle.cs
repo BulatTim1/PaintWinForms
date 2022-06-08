@@ -29,14 +29,14 @@ namespace PaintSaveLoad
 
         public override void Draw(Graphics paper)
         {
-            int[] rgbS = GetRGBStroke();
-            int[] rgbF = GetRGBFilled();
-            var colorStroke = Color.FromArgb(rgbS[0], rgbS[1], rgbS[2]);
-            var colorFilled = Color.FromArgb(rgbF[0], rgbF[1], rgbF[2]);
-            var pen = new Pen(colorStroke, Stroke.Width);
+            //int[] rgbS = GetRGBStroke();
+            //int[] rgbF = GetRGBFilled();
+            //var colorStroke = Color.FromArgb(rgbS[3], rgbS[0], rgbS[1], rgbS[2]);
+            //var colorFilled = Color.FromArgb(rgbS[3], rgbF[0], rgbF[1], rgbF[2]);
+            var pen = new Pen(Stroke.Color, Stroke.Width);
             paper.DrawEllipse(pen, basePoint.X - Radius,
                 basePoint.Y - Radius, Radius * 2, Radius * 2);
-            SolidBrush brush = new SolidBrush(colorFilled);
+            SolidBrush brush = new SolidBrush(Fill.Color);
             paper.FillEllipse(brush, basePoint.X - Radius,
                 basePoint.Y - Radius, Radius * 2,Radius * 2);
         }
@@ -44,7 +44,7 @@ namespace PaintSaveLoad
         public override string Serialize()
         {
             return $"C:{basePoint.X},{basePoint.Y},{Radius}," +
-                $"{Fill.Color},{Stroke.Color},{Stroke.Width};";
+                $"{Fill.Color.ToArgb()},{Stroke.Color.ToArgb()},{Stroke.Width};";
         }
     }
 }

@@ -40,11 +40,11 @@ namespace PaintSaveLoad
 
         public override void Draw(Graphics paper)
         {
-            int[] rgbS = GetRGBStroke();
-            int[] rgbF = GetRGBFilled();
-            var colorStroke = Color.FromArgb(rgbS[0], rgbS[1], rgbS[2]);
-            var colorFilled = Color.FromArgb(rgbF[0], rgbF[1], rgbF[2]);
-            var pen = new Pen(colorStroke, Stroke.Width);
+            //int[] rgbS = GetRGBStroke();
+            //int[] rgbF = GetRGBFilled();
+            //var colorStroke = Color.FromArgb(rgbS[3], rgbS[0], rgbS[1], rgbS[2]);
+            //var colorFilled = Color.FromArgb(rgbS[3], rgbF[0], rgbF[1], rgbF[2]);
+            var pen = new Pen(Stroke.Color, Stroke.Width);
 
             // To draw normal triangle duplicating A and B points
             paper.DrawLines(pen, new PointF[] {
@@ -54,7 +54,7 @@ namespace PaintSaveLoad
                 new PointF(A.X, A.Y),
                 new PointF(B.X, B.Y)});
 
-            SolidBrush brush = new SolidBrush(colorFilled);
+            SolidBrush brush = new SolidBrush(Fill.Color);
             paper.FillPolygon(brush, new PointF[] {
                 new PointF(A.X, A.Y),
                 new PointF(B.X, B.Y),
@@ -64,7 +64,7 @@ namespace PaintSaveLoad
         public override string Serialize()
         {
             return $"T:{A.X},{A.Y},{B.X},{B.Y},{C.X}," +
-                $"{C.Y},{Fill.Color},{Stroke.Color},{Stroke.Width};";
+                $"{C.Y},{Fill.Color},{Stroke.Color.ToArgb()},{Stroke.Width};";
         }
     }
 }

@@ -143,6 +143,12 @@ namespace PaintSaveLoad
             // 
             this.colorDialogFillColor.AnyColor = true;
             this.colorDialogFillColor.Color = System.Drawing.Color.Transparent;
+            this.colorDialogFillColor.FullOpen = true;
+            // 
+            // colorDialogStrokeColor
+            // 
+            this.colorDialogStrokeColor.AnyColor = true;
+            this.colorDialogStrokeColor.FullOpen = true;
             // 
             // tablePanel
             // 

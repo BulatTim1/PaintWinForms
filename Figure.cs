@@ -23,12 +23,12 @@ namespace PaintSaveLoad
     public struct StrokeData
     {
         public int Width;
-        public int Color;
+        public Color Color;
     }
 
     struct FillData
     {
-        public int Color;
+        public Color Color;
     }
 
     public class Figure

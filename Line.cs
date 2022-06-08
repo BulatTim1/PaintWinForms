@@ -34,31 +34,32 @@ namespace PaintSaveLoad
             B = new Point(x2, y2);
             Stroke = new StrokeData
             {
-                Color = StrokeColor, 
+                Color = Color.FromArgb(StrokeColor), 
                 Width = StrokeWidth
             };
         }
 
         public override void Draw(Graphics paper)
         {
-            int[] rgbS = GetRGBStroke();
-            var colorStroke = Color.FromArgb(rgbS[0], rgbS[1], rgbS[2]);
-            var pen = new Pen(colorStroke, Stroke.Width);
+            //int[] rgbS = GetRGBStroke();
+            //var colorStroke = Color.FromArgb(rgbS[3], rgbS[0], rgbS[1], rgbS[2]);
+            var pen = new Pen(Stroke.Color, Stroke.Width);
             paper.DrawLine(pen, A.X, A.Y, B.X, B.Y);
         }
 
         public override string Serialize()
         {
             return $"L:{A.X},{A.Y},{B.X},{B.Y}," +
-                $"{Stroke.Color},{Stroke.Width};";
+                $"{Stroke.Color.ToArgb()},{Stroke.Width};";
         }
 
-        public int[] GetRGBStroke()
-        {
-            int Blue = Stroke.Color % 256;
-            int Green = Stroke.Color / 256 % 256;
-            int Red = Stroke.Color / 256 / 256 % 256;
-            return new int[] { Red, Green, Blue };
-        }
+        //public int[] GetRGBStroke()
+        //{
+        //    int Blue = Stroke.Color % 256;
+        //    int Green = Stroke.Color / 256 % 256;
+        //    int Red = Stroke.Color / 256 / 256 % 256;
+        //    int Alpha = Stroke.Color / 256 / 256 / 256 % 256;
+        //    return new int[] { Red, Green, Blue, Alpha };
+        //}
     }
 }

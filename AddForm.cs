@@ -118,11 +118,7 @@ namespace PaintSaveLoad
         private int TakeColor(ColorDialog colorDialog)
         {
             Color color = colorDialog.Color;
-
-            int rgb = color.R;
-            rgb = (rgb << 8) + color.G;
-            rgb = (rgb << 8) + color.B;
-            return rgb;
+            return color.ToArgb();
         }
 
         private bool IsValid()
