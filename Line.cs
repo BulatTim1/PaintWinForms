@@ -1,6 +1,4 @@
-﻿//Timurshin Bulat, 220 group, Geometric figures 4, 06.06.22
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;

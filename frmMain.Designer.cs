@@ -1,4 +1,4 @@
-﻿//Timurshin Bulat, 220 group, Geometric figures 4, 06.06.22
+﻿//Timurshin Bulat, 220 group, Geometric figures 3, 30.05.22
 
 namespace PaintSaveLoad
 {

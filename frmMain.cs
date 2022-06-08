@@ -1,4 +1,4 @@
-﻿//Timurshin Bulat, 220 group, Geometric figures 4, 06.06.22
+﻿//Timurshin Bulat, 220 group, Geometric figures 3, 30.05.22
 
 using System;
 using System.Drawing;
@@ -22,14 +22,6 @@ namespace PaintSaveLoad
             Draw();
         }
 
-        /// <param name="type">
-        /// Don't use 0 - Figure
-        /// 1 - Line
-        /// Don't use 2 - FilledFigure
-        /// 3 - Circle
-        /// 4 - Rectangle
-        /// 5 - Triangle
-        /// </param>
         private void btnClick(int type)
         {
             using (var form = new AddForm(type))
