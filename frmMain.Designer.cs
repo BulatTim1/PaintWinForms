@@ -78,7 +78,6 @@ namespace PaintSaveLoad
             this.btnLoad.TabIndex = 7;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click) + new System.EventHandler(this.btnDraw_Click);
             // 
             // btnSave
             // 
@@ -98,7 +97,6 @@ namespace PaintSaveLoad
             this.btnAddTriangle.TabIndex = 5;
             this.btnAddTriangle.Text = "Add Triangle";
             this.btnAddTriangle.UseVisualStyleBackColor = true;
-            this.btnAddTriangle.Click += new System.EventHandler(this.btnAddTriangle_Click) + new System.EventHandler(this.btnDraw_Click);
             // 
             // btnAddRectangle
             // 
@@ -108,7 +106,6 @@ namespace PaintSaveLoad
             this.btnAddRectangle.TabIndex = 4;
             this.btnAddRectangle.Text = "Add Rectangle";
             this.btnAddRectangle.UseVisualStyleBackColor = true;
-            this.btnAddRectangle.Click += new System.EventHandler(this.btnAddRectangle_Click) + new System.EventHandler(this.btnDraw_Click);
             // 
             // btnAddCircle
             // 
@@ -118,7 +115,6 @@ namespace PaintSaveLoad
             this.btnAddCircle.TabIndex = 3;
             this.btnAddCircle.Text = "Add Circle";
             this.btnAddCircle.UseVisualStyleBackColor = true;
-            this.btnAddCircle.Click += new System.EventHandler(this.btnAddCircle_Click) + new System.EventHandler(this.btnDraw_Click);
             // 
             // btnAddLine
             // 
@@ -128,7 +124,6 @@ namespace PaintSaveLoad
             this.btnAddLine.TabIndex = 2;
             this.btnAddLine.Text = "Add Line";
             this.btnAddLine.UseVisualStyleBackColor = true;
-            this.btnAddLine.Click += new System.EventHandler(this.btnAddLine_Click) + new System.EventHandler(this.btnDraw_Click);
             // 
             // btnClear
             // 
@@ -138,7 +133,6 @@ namespace PaintSaveLoad
             this.btnClear.TabIndex = 1;
             this.btnClear.Text = "New";
             this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click) + new System.EventHandler(this.btnDraw_Click);
             // 
             // btnDraw
             // 
