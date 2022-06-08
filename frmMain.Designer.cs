@@ -136,7 +136,7 @@ namespace PaintSaveLoad
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 1;
-            this.btnClear.Text = "Clear";
+            this.btnClear.Text = "New";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click) + new System.EventHandler(this.btnDraw_Click);
             // 
