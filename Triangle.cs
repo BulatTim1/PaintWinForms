@@ -64,7 +64,7 @@ namespace PaintSaveLoad
         public override string Serialize()
         {
             return $"T:{A.X},{A.Y},{B.X},{B.Y},{C.X}," +
-                $"{C.Y},{Fill.Color},{Stroke.Color.ToArgb()},{Stroke.Width};";
+                $"{C.Y},{Fill.Color.ToArgb()},{Stroke.Color.ToArgb()},{Stroke.Width};";
         }
     }
 }

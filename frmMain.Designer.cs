@@ -31,7 +31,7 @@ namespace PaintSaveLoad
         private void InitializeComponent()
         {
             this.pnlArtBoard = new System.Windows.Forms.Panel();
-            this.panelControls = new System.Windows.Forms.Panel();
+            this.pnlControls = new System.Windows.Forms.Panel();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddTriangle = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@ namespace PaintSaveLoad
             this.btnDraw = new System.Windows.Forms.Button();
             this.saveDialog = new System.Windows.Forms.SaveFileDialog();
             this.loadDialog = new System.Windows.Forms.OpenFileDialog();
-            this.panelControls.SuspendLayout();
+            this.pnlControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlArtBoard
@@ -56,19 +56,19 @@ namespace PaintSaveLoad
             // 
             // panelControls
             // 
-            this.panelControls.Controls.Add(this.btnLoad);
-            this.panelControls.Controls.Add(this.btnSave);
-            this.panelControls.Controls.Add(this.btnAddTriangle);
-            this.panelControls.Controls.Add(this.btnAddRectangle);
-            this.panelControls.Controls.Add(this.btnAddCircle);
-            this.panelControls.Controls.Add(this.btnAddLine);
-            this.panelControls.Controls.Add(this.btnClear);
-            this.panelControls.Controls.Add(this.btnDraw);
-            this.panelControls.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControls.Location = new System.Drawing.Point(629, 0);
-            this.panelControls.Name = "panelControls";
-            this.panelControls.Size = new System.Drawing.Size(171, 450);
-            this.panelControls.TabIndex = 1;
+            this.pnlControls.Controls.Add(this.btnLoad);
+            this.pnlControls.Controls.Add(this.btnSave);
+            this.pnlControls.Controls.Add(this.btnAddTriangle);
+            this.pnlControls.Controls.Add(this.btnAddRectangle);
+            this.pnlControls.Controls.Add(this.btnAddCircle);
+            this.pnlControls.Controls.Add(this.btnAddLine);
+            this.pnlControls.Controls.Add(this.btnClear);
+            this.pnlControls.Controls.Add(this.btnDraw);
+            this.pnlControls.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlControls.Location = new System.Drawing.Point(629, 0);
+            this.pnlControls.Name = "panelControls";
+            this.pnlControls.Size = new System.Drawing.Size(171, 450);
+            this.pnlControls.TabIndex = 1;
             // 
             // btnLoad
             // 
@@ -167,11 +167,11 @@ namespace PaintSaveLoad
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pnlArtBoard);
-            this.Controls.Add(this.panelControls);
+            this.Controls.Add(this.pnlControls);
             this.Name = "frmMain";
             this.Text = "Paint";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.btnDraw_Click);
-            this.panelControls.ResumeLayout(false);
+            this.pnlControls.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -179,7 +179,7 @@ namespace PaintSaveLoad
         #endregion
 
         private System.Windows.Forms.Panel pnlArtBoard;
-        private System.Windows.Forms.Panel panelControls;
+        private System.Windows.Forms.Panel pnlControls;
         private System.Windows.Forms.Button btnDraw;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnAddTriangle;
